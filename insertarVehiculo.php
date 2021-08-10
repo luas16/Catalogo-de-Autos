@@ -1,30 +1,29 @@
 <?php
 include 'php/conexion.php  ';
 
-$marca = $_POST['marca'];
-$linea = $_POST['linea'];
-$tipo = $_POST['tipo'];
-$transmision = $_POST['transmision'];
-$modelo = $_POST['modelo'];
-$km = $_POST['km'];
-$traccion = $_POST['traccion'];
-$combustible = $_POST['combustible'];
-$color = $_POST['color'];
-$precio = $_POST['precio'];
-$cantidad_puertas = $_POST['cantidad_puertas'];
-
-$squery = "INSERT INTO vehiculos(correlativo, marca, linea, tipo, transmision, modelo, km, traccion, combustible, color, precio, cantidad_puertas) VALUES (NULL, '$marca', '$linea', '$tipo', '$transmision', '$modelo', '$km', '$traccion', '$combustible', '$color', '$precio', '$cantidad_puertas')";
-
-mysqli_query($conexion, $squery);
-
-$idvehiculo = mysqli_insert_id($conexion);
-echo $idvehiculo;
-
-
 foreach ($_FILES["archivo"]["tmp_name"] as $key => $tmp_name) {
 
 	if ($_FILES["archivo"]["name"][$key]) {
-		
+		//recogemos toda la informacion y la enviamos a nuestra base de datos media vez ingresen fotos
+		$marca = $_POST['marca'];
+		$linea = $_POST['linea'];
+		$tipo = $_POST['tipo'];
+		$transmision = $_POST['transmision'];
+		$modelo = $_POST['modelo'];
+		$km = $_POST['km'];
+		$traccion = $_POST['traccion'];
+		$combustible = $_POST['combustible'];
+		$color = $_POST['color'];
+		$precio = $_POST['precio'];
+		$cantidad_puertas = $_POST['cantidad_puertas'];
+		//se envia la informacion a traves de esta consulta
+		$squery = "INSERT INTO vehiculos(correlativo, marca, linea, tipo, transmision, modelo, km, traccion, combustible, color, precio, cantidad_puertas) VALUES (NULL, '$marca', '$linea', '$tipo', '$transmision', '$modelo', '$km', '$traccion', '$combustible', '$color', '$precio', '$cantidad_puertas')";
+
+		mysqli_query($conexion, $squery);
+		//se recoge al id del ultimo dato ingresado en nuestra BD
+		$idvehiculo = mysqli_insert_id($conexion);
+
+		//Como se ingresaron las fotos se realiza lo siguiente para recopilar la informacion necesaria.
 		$nombreArchivo = $_FILES["archivo"]["name"][$key];//recopilamos nombre de archivo
 		$ubicacion = $_FILES["archivo"]["tmp_name"][$key];//recopilamos la ubicacion en el servidor
 
@@ -56,7 +55,7 @@ foreach ($_FILES["archivo"]["tmp_name"] as $key => $tmp_name) {
 	}
 	else
 	{
-		echo"Seleccione un archivo que desea enviar";
+		header('location: alertPos.php');
 	}
 
 }

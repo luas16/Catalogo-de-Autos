@@ -101,14 +101,27 @@ include 'php/conexion.php';
                 <input class = "fprecio" type="text" name = "precio" placeholder = "Precio del Vehículo"><br>
                 <input class = "fcantidad_puertas" type="text" name = "cantidad_puertas" placeholder = "No. de puertas del Vehículo"><br>
                 <span>Ingrese fotos del Vehículo:</span><br>
-                <input type="file" name= "archivo[]" multiple=""><br>
+                <input class="fotos" type="file" name= "archivo[]" multiple=""><br>
                 
-                <input type="submit" value = "Insertar" class = "btnInsertar">
+                <input type="submit" value = "Ingresar" class = "btnInsertar">
+                <input type="button" onclick="confirmacion()" value="Enviar"  />
 
             </form>
         </div>
     </div>
 
+     <script type="text/javascript">
+        function confirmacion() {
+            if(.fotos)
+            {
+                alert("si se pudo");
+            }else
+            {
+                alert("no se pudo");
+            }
+
+        }
+    </script>
 </body>
 
 </html>
