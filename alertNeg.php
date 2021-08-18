@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/modal.css">
+	<link rel="stylesheet" type="text/css" href="css/alertas.css">
 </head>
 <body>
 	<div id = modal1 class="fondo">
 		<div class="contenedor">
-			<h2 class="mensaje">No se adjunto ninguna foto</h2>
-			<a class="btnAceptar" href="formVehiculo.php">Aceptar</a>
+			<h2 class="mensajeN">No se adjunto ninguna foto</h2>
+			<a class="btnAceptarN" href="formVehiculo.php">Aceptar</a>
 		</div>
 	</div>
 

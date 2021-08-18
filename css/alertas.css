@@ -33,13 +33,14 @@ html,body,.auxBtn{
 }
 
 .contenedor{
-	background-color:grey;
+	background-color: #fff;
 	width: 40%;
 	margin: 0 auto;
+	opacity: .6;
 }
 
 .mensaje{
-	color: red;
+	color: rgb(60, 221, 15);
 	font-family: "sans-serif";
 	font-size: 20px;
 	text-align: center;
@@ -47,6 +48,30 @@ html,body,.auxBtn{
 
 
 .btnAceptar
+{
+	background-color: green;
+	font-family: "sans-serif";
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 3opx;
+	margin: 0 auto;
+	display: block;
+	border-radius: 50px;
+	width: 50%;
+	text-align: center;
+
+}
+
+.mensajeN{
+	color: darkred;
+	font-family: "sans-serif";
+	font-size: 20px;
+	text-align: center;
+}
+
+
+.btnAceptarN
 {
 	background-color: red;
 	font-family: "sans-serif";
@@ -61,4 +86,10 @@ html,body,.auxBtn{
 	text-align: center;
 
 }
+
+
+
+
+
+
 
