@@ -1,6 +1,16 @@
-<?php
+<?php 
 include 'php/conexion.php';
-?>
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+  header('location: login.php');
+
+  die(); 
+}
+$nombreColaborador =$_SESSION['nombre'];
+
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
