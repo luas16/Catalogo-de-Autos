@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    /*background-image: url(../img/fondo.jpg) no-repeat center top;*/
+    background-image: url(../img/logo.jpg);
     background-size: cover;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     height: 100vh;
@@ -10,7 +10,7 @@ body{
 .contenedor{
     width: 320px;
     height: 420px;
-    background: #000;
+    background: crimson;
     color: #fff;
     top: 50%;
     left: 50%;
@@ -20,8 +20,57 @@ body{
     padding: 70px 30px;
 }
 
-.imglogin{
+.contenedor .imglogin{
     width: 100px;
-    height: 100px;
+    height: 90px;
     border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.contenedor h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.contenedor label{
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    display: block;
+}
+
+.contenedor input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.contenedor input[type = "text"],
+.contenedor input[type = "password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: darkslategray;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 50px;
+    
+}
+
+.btn:hover{
+    background-color: dimgray;
 }

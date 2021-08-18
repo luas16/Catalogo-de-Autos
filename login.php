@@ -9,17 +9,17 @@
 </head>
 <body>
   <div class = "contenedor">
-    <img src="img/logo.jpg" alt="">
-    <h1>Ingrese Aquí</h1>
+    <img class = "imglogin" src="img/fondo.jpg" alt="">
+    <h1>Bienvenido</h1>
     <form action="">
       <!--usuario-->
       <label for="usuario">Usuario</label>
       <input type="text" placeholder= "Ingrese Usuario">
       <!--contraseña-->
       <label for="contra">Contraseña</label>
-      <input type="text" placeholder= "Ingrese Contraseña">
+      <input type="password" placeholder= "Ingrese Contraseña">
 
-      <input type="submit" value= "Iniciar Sesión">
+      <input class = "btn" type="submit" value= "Iniciar Sesión">
 
     </form>
 
