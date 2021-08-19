@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     /* Ubicación de la imagen */
-    background-image: url(../img/logo.jpeg);
+    background: url(../img/logo.jpeg) no-repeat center center/cover;
     /* Para dejar la imagen de fondo centrada, vertical y
     horizontalmente */
     background-position: center center;
@@ -19,6 +19,39 @@ body{
     height: 100vh;
     
 }
+
+
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 150px;
+    background-color: darkslategray;
+    border-radius: 25px;
+    border: 4px inset crimson;
+    padding: 10px;
+    opacity: .85;
+    font-size: 12px;
+    color: black;
+}
+
+.menu a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+.menu:hover{
+    background-color: crimson;
+}
+
+.menu a:hover{
+    color: wheat;
+}
+
 
 .contenedor{
     display: flex;
@@ -84,7 +117,6 @@ body{
     color: #fff;
     font-size: 22px;
     border-radius: 50px;
-    
 }
 
 .btn:hover{

@@ -26,13 +26,16 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/stlogin.css">
   <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/stlogin.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Venta de Autos LUAS</title>
   
 </head>
 <body>
+  <div class = "menu">
+    <a href="../index.html">Ir a página principal</a>
+  </div>
   <div class = "contenedor">
     <img class = "imglogin" src="../img/fondo.jpg" alt="">
     <h1>Bienvenido</h1>
@@ -45,18 +48,20 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
       <input class="pass" type="password" placeholder= "Ingrese Contraseña" name = "contra">
 
       <input class = "btn" type="submit" value= "Iniciar Sesión">
+      
       <a href="#">Olvide mi contraseña?</a> <br>
       <a href="#">No tiene cuenta?</a>
     </form>
   </div>
   <script type="text/javascript">
-        if("<?php $contador ?>" != 1)
+    if("<?php $contador ?>" != 1)
       {
         swal({
           title: "Atención!", 
           text: "Ingrese sus datos para validar su acceso", 
           icon: "warning",
-          button: "Aceptar"});
+          button: "Aceptar",
+          timer: 5000});
       }     
   </script>'
 </body>

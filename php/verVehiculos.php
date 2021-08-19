@@ -1,56 +1,103 @@
+<?php 
+include 'conexion.php';
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+  header('location: login.php');
+
+  die(); 
+}
+$nombreColaborador =$_SESSION['nombre'];
+
+ ?>
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-table {
-  width:100%;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-  text-align: left;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/verV.css">
+  <title>Vehículos</title>
 </head>
 <body>
+  <!--menu principal-->
+  <nav class="nav-main">
+      <ul>
+        <li>
+        <a>Bienvenido : <?php echo $nombreColaborador; ?></a>
+        </li>
+      </ul>
+      <ul class="nav-menu">
 
-<h2>Styling Tables</h2>
+        <li>
+            <a href="verVehiculos.php">Vizualizar Vehículos</a>
+        </li>
+        <li>
+            <a href="formVehiculo.php">Registrar Nuevos Vehículos</a>
+        </li>
+        <li>
+            <a href="../index.html" target= "-blank">Ver página principal</a>
+        </li>
+      </ul>
 
-<table id="t01">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr>
-</table>
+      <ul >
+        <li >
+              <a href="logout.php">Cerrar Sesion</a>
+          </li>
+      </ul>
+      <ul class="nav-menu-derecha">
+          <li>
+              <a href="#">
+                  <i class="fas fa-search"></i>
+              </a>
+          </li>
+      </ul>
+  </nav> 
 
+  <header class="imgPrincipal">
+      <h2>Auto Ventas "SD" <br> Información de Vehículos</h2>
+  </header>
+  <table id="t01">
+    <tr>
+      <th>Tipo</th>
+      <th>Marca</th> 
+      <th>Modelo</th>
+      <th>Transmisión</th>
+      <th>Precio</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    <?php 
+
+      include 'conexion.php';
+
+      $instruccion = "SELECT vehiculos.correlativo, tipo_vehiculo.tipo, marcas.marca, vehiculos.modelo, transmision.transmision, vehiculos.precio FROM vehiculos
+      INNER JOIN tipo_vehiculo on vehiculos.tipo = tipo_vehiculo.id_tipo
+      INNER JOIN marcas on vehiculos.marca = marcas.id_marcar
+      INNER JOIN transmision on vehiculos.transmision = transmision.id_transmicion";
+      $query = mysqli_query($conexion,$instruccion);
+
+      while ($r = mysqli_fetch_assoc($query)) {
+        
+        echo "<tr>
+                <td>".$r['tipo']."</td>
+                <td>".$r['marca']."</td>
+                <td>".$r['modelo']."</td>
+                <td>".$r['transmision']."</td>
+                <td>".$r['precio']."</td>
+                <td><a href= 'formModificaProveedores.php? proveedor=".$r['correlativo']."'><svg class = 'btnEditar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'/>
+                  </svg></a></td>
+                <td><a href = 'eliminarProveedor.php? codProveedor= ".$r['correlativo']."' ><svg class = 'btnEliminar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
+                  </svg></a></td>
+             </tr>";
+}
+
+?>
+
+  </table>
+  
 </body>
 </html>
