@@ -19,11 +19,17 @@ $nombreColaborador =$_SESSION['nombre'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formuladio Insersion de Vehículo</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <title>Formuladio Insersion de Vehículo</title>
+
 </head>
 
 <body>
+    <div class="contenedorUser">
+        <h2>Bienvenido : <?php echo $nombreColaborador; ?></h2><br>
+        <a href="logout.php">Cerrar Sesion</a>
+    </div>
     <div class="contenedor">
          <div class="formulario">
             <h1>Formulario para insertar Vehículo</h1>
@@ -118,7 +124,7 @@ $nombreColaborador =$_SESSION['nombre'];
             </form>
         </div>
     </div>
-
+    
 </body>
 
 </html>

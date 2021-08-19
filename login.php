@@ -16,6 +16,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 		$_SESSION['usuario'] = $usuario;
     header('location: formVehiculo.php');
 	}
+  else{
+    
+  }
 }
 
 ?>
@@ -27,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/stlogin.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <title>Venta de Autos LUAS</title>
 </head>
 <body>
@@ -36,13 +40,14 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <form method="POST" action="">
       <!--usuario-->
       <label for="usuario">Usuario</label>
-      <input type="text" placeholder= "Ingrese Usuario" name= "user">
+      <input class = "us" type="text" placeholder= "Ingrese Usuario" name= "user">
       <!--contraseña-->
       <label for="contra">Contraseña</label>
-      <input type="password" placeholder= "Ingrese Contraseña" name = "contra">
+      <input class="pass" type="password" placeholder= "Ingrese Contraseña" name = "contra">
 
-      <input class = "btn" type="submit" value= "Iniciar Sesión">
-
+      <input class = "btn" type="submit" value= "Iniciar Sesión" onclick="confirmacion()">
+      <a href="#">Olvide mi contraseña?</a> <br>
+      <a href="#">No tiene cuenta?</a>
     </form>
 
   </div>
