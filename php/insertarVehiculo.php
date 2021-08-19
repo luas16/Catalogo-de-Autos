@@ -1,5 +1,5 @@
 <?php
-include 'php/conexion.php  ';
+include 'conexion.php  ';
 
 
 //recogemos toda la informacion y la enviamos a nuestra base de datos media vez ingresen fotos

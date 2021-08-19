@@ -1,5 +1,5 @@
 <?php 
-include 'php/conexion.php';
+include 'conexion.php';
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -19,8 +19,8 @@ $nombreColaborador =$_SESSION['nombre'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <title>Formuladio Insersion de Vehículo</title>
 
 </head>

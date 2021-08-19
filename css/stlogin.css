@@ -21,6 +21,8 @@ body{
 }
 
 .contenedor{
+    display: flex;
+    flex-direction: column;
     width: 320px;
     height: 420px;
     background: crimson;
@@ -100,3 +102,68 @@ body{
   .contenedor a:hover {
     color: wheat;
   }
+
+ 
+
+  /* diseño responsivo */
+@media (max-width: 500px){
+.contenedor{
+    width: 220px;
+    height: 320px;
+
+}
+
+.contenedor h1{
+    margin: 0;
+    padding: 0 0 15px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.contenedor label{
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    display: block;
+    font-size: 14px;
+}
+
+.contenedor input{
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.contenedor .us,
+.contenedor .pass{
+    border: none;
+    border-bottom: 0.5px solid darkgrey;
+    background: transparent;
+    outline: none;
+    height: 18px;
+    color: wheat;
+    font-size: 12px;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    height: 30px;
+    background-color: darkslategray;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50px;
+    
+}
+
+.contenedor a {
+    text-decoration: none;
+    font-size: 10px;
+    line-height: 10px;
+    color: darkgrey;
+  }
+  
+
+
+
+}

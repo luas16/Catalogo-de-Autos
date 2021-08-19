@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/alertas.css">
+	<link rel="stylesheet" type="text/css" href="../css/alertas.css">
 </head>
 <body>
 	<div id = modal1 class="fondo">

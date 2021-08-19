@@ -6,7 +6,7 @@
 
 
 
-body{
+body{  
     background: #000000;
     color: #fff;
     background-color: #121212;
@@ -23,7 +23,10 @@ body{
 .contenedorUser{
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width: 100%;
+    max-width: 250px;
+    
+    
     background-color: indianred;
     border-radius: 25px;
     border: 4px inset skyblue;
@@ -43,16 +46,21 @@ body{
 .contenedorUser a:hover{
     color: crimson;
 }
+
+
 .contenedor{
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
-.formulario{
+.contenedor .formulario{
     color: #ffffff;
     background-color: black;
     border-radius: 25px;
@@ -62,7 +70,7 @@ body{
 }
 
 
-.form{
+.contenedor .formulario .form{
     display: grid;
     grid-template-columns: repeat(2,100%) ;
     gap: 2px;
