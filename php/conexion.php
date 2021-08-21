@@ -6,5 +6,4 @@ $bd = "intecap";
 
 $conexion = mysqli_connect($server,$usuario,$contra,$bd);
 
-
  ?>

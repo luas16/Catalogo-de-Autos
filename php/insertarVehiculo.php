@@ -1,5 +1,7 @@
 <?php
-include 'conexion.php  ';
+include 'conexion.php';
+session_start();
+include 'autenticacion.php';
 
 
 //recogemos toda la informacion y la enviamos a nuestra base de datos media vez ingresen fotos
@@ -30,7 +32,7 @@ foreach ($_FILES["archivo"]["tmp_name"] as $key => $tmp_name) {
 		$nombreArchivo = $_FILES["archivo"]["name"][$key];//recopilamos nombre de archivo
 		$ubicacion = $_FILES["archivo"]["tmp_name"][$key];//recopilamos la ubicacion en el servidor
 
-		$directorio= 'img/fotos/';//inidcamos donde se guardaran las imagenes
+		$directorio= '../img/fotos/';//inidcamos donde se guardaran las imagenes
 
 		if(!file_exists($directorio))//verificando si la carpeta existe
 		{

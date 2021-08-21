@@ -1,15 +1,8 @@
 <?php 
 include 'conexion.php';
 session_start();
-
-if (!isset($_SESSION['usuario'])) {
-  header('location: login.php');
-
-  die(); 
-}
-$nombreColaborador =$_SESSION['nombre'];
-
- ?>
+include 'autenticacion.php';
+?>
 
 
 
@@ -27,13 +20,13 @@ $nombreColaborador =$_SESSION['nombre'];
   <nav class="nav-main">
       <ul>
         <li>
-        <a>Bienvenido : <?php echo $nombreColaborador; ?></a>
+        <a>Bienvenido : <?php echo $_SESSION['nombre']; ?></a>
         </li>
       </ul>
       <ul class="nav-menu">
 
         <li>
-            <a href="verVehiculos.php">Vizualizar Vehículos</a>
+            <a href="verVehiculos.php">Visualizar Vehículos</a>
         </li>
         <li>
             <a href="formVehiculo.php">Registrar Nuevos Vehículos</a>
@@ -88,16 +81,13 @@ $nombreColaborador =$_SESSION['nombre'];
                 <td>".$r['modelo']."</td>
                 <td>".$r['transmision']."</td>
                 <td>".$r['precio']."</td>
-                <td><a href= 'formModificaProveedores.php? proveedor=".$r['correlativo']."'><svg class = 'btnEditar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'/>
+                <td><a href= 'formModificarVehiculo.php? correlativo=".$r['correlativo']."'><svg class = 'btnEditar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'/>
                   </svg></a></td>
-                <td><a href = 'eliminarProveedor.php? codProveedor= ".$r['correlativo']."' ><svg class = 'btnEliminar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
+                <td><a href = 'eliminarVehiculo.php? correlativo= ".$r['correlativo']."' ><svg class = 'btnEliminar' xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
                   </svg></a></td>
              </tr>";
-}
-
+      }
 ?>
-
   </table>
-  
 </body>
 </html>

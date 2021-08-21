@@ -9,7 +9,7 @@
 	<div id = modal1 class="fondo">
 		<div class="contenedor">
 			<h2 class="mensajeN">No se adjunto ninguna foto</h2>
-			<a class="btnAceptarN" href="formVehiculo.php">Aceptar</a>
+			<a class="btnAceptarN" href="verVehiculos.php">Aceptar</a>
 		</div>
 	</div>
 

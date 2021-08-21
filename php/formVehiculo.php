@@ -1,14 +1,7 @@
 <?php 
 include 'conexion.php';
 session_start();
-
-if (!isset($_SESSION['usuario'])) {
-  header('location: login.php');
-
-  die(); 
-}
-$nombreColaborador =$_SESSION['nombre'];
-
+include 'autenticacion.php';
  ?>
 
 
@@ -29,13 +22,13 @@ $nombreColaborador =$_SESSION['nombre'];
   <nav class="nav-main">
       <ul>
         <li>
-        <a>Bienvenido : <?php echo $nombreColaborador; ?></a>
+        <a>Bienvenido : <?php echo $_SESSION['nombre']; ?></a>
         </li>
       </ul>
       <ul class="nav-menu">
 
         <li>
-            <a href="verVehiculos.php">Vizualizar Vehículos</a>
+            <a href="verVehiculos.php">Visualizar Vehículos</a>
         </li>
         <li>
             <a href="formVehiculo.php">Registrar Nuevos Vehículos</a>
@@ -72,7 +65,7 @@ $nombreColaborador =$_SESSION['nombre'];
                     }
                     ?>
                 </select><br>
-                <input class = "fdescripcion" type="text" name = "descripcionMarca" placeholder = "Descripción"><br>
+                
                 <input class = "flinea" type="text" name = "linea" placeholder = "Linea del Vehiculo"><br>
                 <span>Tipo de Vehículo:</span><br>
                 <select name="tipo" class="cmb"  >
@@ -86,7 +79,7 @@ $nombreColaborador =$_SESSION['nombre'];
                     }
                     ?>
                 </select><br>
-                <input class = "fdescripcion" type="text" name = "descripcionTipo" placeholder = "Descripción"><br>
+              
                 <span>Transmision del Vehículo:</span><br>
                 <select name="transmision" class="cmb"  >
 
@@ -99,7 +92,7 @@ $nombreColaborador =$_SESSION['nombre'];
                     }
                     ?>
                 </select><br>
-                <input class = "fdescripcion" type="text" name = "descripcionTransmision" placeholder = "Descripción"><br>
+               
                 <input class = "fmodelo" type="text" name = "modelo" placeholder = "Modelo del Vehículo"><br>
                 <input class = "fkm" type="text" name = "km" placeholder = "Kilometraje del Vehiculo"><br>
                 <span>Tracción del Vehículo:</span><br>
@@ -114,7 +107,7 @@ $nombreColaborador =$_SESSION['nombre'];
                     }
                     ?>
                 </select><br>
-                <input class = "fdescripcion" type="text" name = "descripcionTraccion" placeholder = "Descripción"><br>
+               
                 <span>Combustible:</span><br>
                 <select name="combustible" class="cmb"  >
 
@@ -127,7 +120,7 @@ $nombreColaborador =$_SESSION['nombre'];
                     }
                     ?>
                 </select><br>
-                <input class = "fdescripcion" type="text" name = "descripcionCombustible" placeholder = "Descripción"><br>
+           
                 <span>Color del Vehículo:</span><br>
                 <select name="color" class="cmb"  >
 

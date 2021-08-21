@@ -11,11 +11,26 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$contador = mysqli_num_rows($query);
 
 	if ($contador == 1) {
-		session_start();
+    session_start();
+    //se envia informacion de sesion
 		$_SESSION['nombre'] = $result['nombreCompleto'];
 		$_SESSION['usuario'] = $usuario;
+    //generamos un token;
+    include 'tokens.php';
+    $tokenU = $jwt;
+    //generamos el tiempo de la cookie
+    $tiempo = time()+(60*1);
+    //se guarda el toquen de la sesion
+    $_SESSION['token']= $tokenU; 
+    //se guarda el toquen en una cookie
+    setcookie("cookUser",$tokenU,$tiempo,"/");
+    //se redirecciona la pagina
     header('location: verVehiculos.php');
-	}
+	}else
+  {
+    setcookie("cookUser","",time()-1,"/");
+  }
+
 }
 
 ?>
@@ -50,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
       <input class = "btn" type="submit" value= "Iniciar Sesión">
       
       <a href="#">Olvide mi contraseña?</a> <br>
-      <a href="#">No tiene cuenta?</a>
+      <a href="#">No tiene cuenta?></a>
     </form>
   </div>
   <script type="text/javascript">
