@@ -2,9 +2,9 @@
 include 'conexion.php';
 session_start();
 include 'autenticacion.php';
+$miToken = $_SESSION['token'];
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ include 'autenticacion.php';
             <a href="formVehiculo.php">Registrar Nuevos Vehículos</a>
         </li>
         <li>
-            <a href="../index.html" target= "-blank">Ver página principal</a>
+            <a href="../index.php" target= "-blank">Ver página principal</a>
         </li>
       </ul>
 
@@ -89,5 +89,9 @@ include 'autenticacion.php';
       }
 ?>
   </table>
+  <script>
+    window.tokenGlobal = "<?php echo $miToken ?>";
+  </script>
+  <script type="text/javascript" src="../js/tk.js"></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+
+
+document.querySelector('.menu-btn').addEventListener('click', () =>{
+    document.querySelector('.nav-menu').classList.toggle('show');
+})
+
+ScrollReveal().reveal('.imgPrincipal');
+ScrollReveal().reveal('.nav-main', {delay: 500});
