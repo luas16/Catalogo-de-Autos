@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     include 'tokens.php';
     $tokenU = $jwt;
     //generamos el tiempo de la cookie
-    $tiempo = time()+(60*30);
+    $tiempo = time()+(60*1);
     //se guarda el toquen de la sesion
     $_SESSION['token']= $tokenU; 
     //se guarda el toquen en una cookie
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 </head>
 <body>
   <div class = "menu">
-    <a href="../index.php">Ir a página principal</a>
+    <a href="index.php">Ir a página principal</a>
   </div>
   <div class = "contenedor">
     <img class = "imglogin" src="../img/fondo.jpg" alt="">
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
           button: "Aceptar",
           timer: 5000});
       }     
-  </script>'
+  </script>
 </body>
 </html>
 

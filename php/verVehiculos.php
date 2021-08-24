@@ -32,7 +32,7 @@ $miToken = $_SESSION['token'];
             <a href="formVehiculo.php">Registrar Nuevos Vehículos</a>
         </li>
         <li>
-            <a href="../index.php" target= "-blank">Ver página principal</a>
+            <a href="index.php" target= "-blank">Ver página principal</a>
         </li>
       </ul>
 

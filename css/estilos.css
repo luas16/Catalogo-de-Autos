@@ -61,7 +61,33 @@ a{
     font-size: 1.2rem;
     display: none;
 }
-
+/*estilos de fotos*/
+.carros{
+    display:  grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    gap: 25px;
+    margin: 100px 0;
+  
+  }
+  
+  .carros img{
+    width: 300px;
+    height: 300px;
+  }
+  
+  .carros h3{
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .carros a{
+    padding: 10px 0;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: bold;
+  
+  }
 
 
 

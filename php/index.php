@@ -1,5 +1,16 @@
 <?php 
-include 'php/conexion.php';
+include 'conexion.php';
+/*consulta para los datos */
+$instruccion = "SELECT vehiculos.correlativo, fotos_autos.ubicacion, marcas.marca, vehiculos.modelo, vehiculos.linea FROM vehiculos
+INNER JOIN fotos_autos on vehiculos.correlativo = fotos_autos.id_vehiculo
+INNER JOIN marcas on vehiculos.marca = marcas.id_marcar";
+$query = mysqli_query($conexion,$instruccion);
+
+/*Ralizamos consulta para poder tomar una foto */
+$instruccionf = "SELECT *, (ROW_NUMBER()OVER(PARTITION BY id_vehiculo ORDER BY correlativo)) AS fila
+FROM fotos_autos";
+$queryf = mysqli_query($conexion,$instruccionf);
+
 
 ?>
 
@@ -12,7 +23,7 @@ include 'php/conexion.php';
   <!--font awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!--conexion al css-->
-  <link rel="stylesheet" href="css/estiloIn.css">
+  <link rel="stylesheet" href="../css/estiloIn.css">
   <title>Vehículos</title>
 </head>
 <body>
@@ -21,7 +32,7 @@ include 'php/conexion.php';
         <i class="fas fa-bars"></i>
   </div>
   <!--menu principal-->
-  <nav class="nav-main">
+    <nav class="nav-main">
       <ul class="nav-menu-izquierda">
          <li>
              <a href="#">
@@ -43,7 +54,7 @@ include 'php/conexion.php';
 
       <ul >
         <li >
-              <a href="php/login.php">Iniciar Sesion</a>
+              <a href="login.php">Iniciar Sesion</a>
           </li>
       </ul>
       <ul class="nav-menu-derecha">
@@ -53,12 +64,37 @@ include 'php/conexion.php';
              </a>
          </li>
       </ul>
-  </nav> 
+   </nav>
   <!-- imagen principal -->
-  <header class="imgPrincipal">
+    <header class="imgPrincipal">
       <h2>Auto Ventas "SD"</h2>
-  </header>
-  <div class = "areaSocial">
+    </header>
+
+  <!-- Carros -->
+    <div class="carros">
+<?php
+    while($r = mysqli_fetch_assoc($query)) {
+
+        while ($rf = mysqli_fetch_assoc($queryf)) {
+            
+            if($rf['fila'] ==1)
+                {
+                echo "<div class = 'vehiculos'>
+                    <img src =".$rf['ubicacion'].">
+                    <h3>".$r['marca']."</h3>
+                    <p>".$r['modelo']."</p>
+                    <p>".$r['linea']."</p>
+                    <a href = 'visualizarVehiculo.php? codVehiculo= ".$rf['id_vehiculo']."' >Ver Vehiculo</a>
+                    </div>";
+                }
+            }
+    }
+
+?>
+
+    </div>
+
+    <div class = "areaSocial">
         <div class="links">
             <a href="https://www.facebook.com" target= "-blank"> <i class="fab fa-facebook"></i></a>
             <a href="https://twitter.com" target= "-blank"> <i class="fab fa-twitter"></i></a>
@@ -66,7 +102,9 @@ include 'php/conexion.php';
             <a href="https://www.linkedin.com" target= "-blank"> <i class="fab fa-linkedin"></i></a>
             <a href="https://www.instagram.com" target= "-blank"> <i class="fab fa-instagram"></i></a>
         </div>
-  </div>
+    </div>
+
+
 <!--pie de pagina -->
 <div class="footer-links">
     <div class="footer-container">
@@ -166,6 +204,6 @@ include 'php/conexion.php';
     <!--estilo de scroll-->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!--conexion al js-->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

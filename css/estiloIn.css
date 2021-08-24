@@ -74,37 +74,6 @@ a{
     font-size: 1.2rem;
     display: none;
 }
-
-
-
-/* estilizacion de tabla */
-
-table {
-    width:100%;
-    margin: 0 auto;
-  }
-
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    
-  }
-  th, td {
-    padding: 15px;
-    text-align: left;
-  }
-  
-  #t01 tr:nth-child(even) {
-    background-color: ghostwhite;
-  }
-  #t01 tr:nth-child(odd) {
-   background-color: gainsboro;
-  }
-  #t01 th {
-    background-color: crimson;
-    color: white;
-    text-align: center;
-  }
   
   /*estilizado de imagen principal*/
   .imgPrincipal{
@@ -145,29 +114,37 @@ table {
   }
   
 
-  @media(max-width: 750px){
-    .nav-main{
-        font-size: 14px;
-    }
-    table {
-        font-size: 12px;
-      }
+/* Estilizado de los seccion de carros*/
+
+.carros{
+  display:  grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  gap: 25px;
+  margin: 100px 0;
+
 }
 
-@media(max-width: 450px){
-    .nav-main{
-        font-size: 10px;
-        padding: 10px 0;
-    }
+.carros img{
+  width: 300px;
+  height: 300px;
+}
 
-    .nav-main ul li{
-        display: flex;
-        margin: 10px ;
-    }
-    
-    table {
-        font-size: 8px;
-      }
+.carros h3{
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.carros a{
+  padding: 10px 0;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: bold;
+
+}
+
+.carros a:hover{
+  text-decoration: underline;
 }
 
 
@@ -236,4 +213,33 @@ table {
   padding: 20px 0;
   opacity: .7;
   text-align: center;
+}
+
+
+
+
+
+@media(max-width: 750px){
+  .nav-main{
+      font-size: 14px;
+  }
+  table {
+      font-size: 12px;
+    }
+}
+
+@media(max-width: 450px){
+  .nav-main{
+      font-size: 10px;
+      padding: 10px 0;
+  }
+
+  .nav-main ul li{
+      display: flex;
+      margin: 10px ;
+  }
+  
+  table {
+      font-size: 8px;
+    }
 }
