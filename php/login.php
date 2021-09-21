@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 </head>
 <body>
   <div class = "menu">
-    <a href="index.php">Ir a página principal</a>
+    <a href="index.php">Página Principal</a>
   </div>
   <div class = "contenedor">
     <img class = "imglogin" src="../img/fondo.jpg" alt="">
